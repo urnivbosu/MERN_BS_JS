@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <script>
+        function calculate() {
+            r
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            
+            var multiplicationResult = num1 * num2;
+            var divisionResult = num1 / num2;
+
+           
+            document.getElementById("multiplicationResult").innerHTML = "Multiplication: " + multiplicationResult;
+            document.getElementById("divisionResult").innerHTML = "Division: " + divisionResult;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <form>
+        <label for="num1">Enter first number:</label>
+        <input type="text" id="num1" name="num1"><br><br>
+
+        <label for="num2">Enter second number:</label>
+        <input type="text" id="num2" name="num2"><br><br>
+
+        <input type="button" value="Calculate" onclick="calculate()">
+    </form>
+
+    <div id="results">
+        <p id="multiplicationResult"></p>
+        <p id="divisionResult"></p>
+    </div>
+</body>
+</html>

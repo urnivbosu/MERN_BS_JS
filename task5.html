@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+
+    <form id="contactForm">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <span id="nameError" class="error"></span>
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <span id="emailError" class="error"></span>
+        </div>
+
+        <div>
+            <label for="website">Website:</label>
+            <input type="url" id="website" name="website">
+            <span id="websiteError" class="error"></span>
+        </div>
+
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+            <span id="messageError" class="error"></span>
+        </div>
+
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var website = document.getElementById('website').value;
+            var message = document.getElementById('message').value;
+
+            var nameError = document.getElementById('nameError');
+            var emailError = document.getElementById('emailError');
+            var websiteError = document.getElementById('websiteError');
+            var messageError = document.getElementById('messageError');
+
+            nameError.textContent = '';
+            emailError.textContent = '';
+            websiteError.textContent = '';
+            messageError.textContent = '';
+
+            if (name === '') {
+                nameError.textContent = 'This field is required.';
+                nameError.style.color = 'red';
+                event.preventDefault();
+            }
+
+            if (!validateEmail(email)) {
+                emailError.textContent = 'Valid email address is required.';
+                emailError.style.color = 'red';
+                event.preventDefault();
+            }
+
+            if (!validateURL(website)) {
+                websiteError.textContent = 'Valid URL is required.';
+                websiteError.style.color = 'red';
+                event.preventDefault();
+            }
+
+            if (message === '') {
+                messageError.textContent = 'This field is required.';
+                messageError.style.color = 'red';
+                event.preventDefault();
+            }
+        });
+
+        function validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+
+        function validateURL(url) {
+            var re = /^(ftp|http|https):\/\/[^ "]+$/;
+            return re.test(url);
+        }
+    </script>
+</body>
+</html>

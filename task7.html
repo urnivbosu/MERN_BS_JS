@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GIF Animation Control</title>
+    <style>
+        #gif-container {
+            text-align: center;
+        }
+        #animation {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>GIF Animation Control</h1>
+
+    <div id="gif-container">
+        <img src="train-3803.gif" alt="Animation" id="animation" width="300" height="200">
+    </div>
+
+    <button id="startButton" onclick="startAnimation()">Start</button>
+    <button id="stopButton" onclick="stopAnimation()" disabled>Stop</button>
+
+    <script>
+        var animation = document.getElementById("animation");
+        var startButton = document.getElementById("startButton");
+        var stopButton = document.getElementById("stopButton");
+
+        function startAnimation() {
+            animation.style.display = "block";
+            startButton.disabled = true;
+            stopButton.disabled = false;
+        }
+
+        function stopAnimation() {
+            animation.style.display = "none";
+            startButton.disabled = false;
+            stopButton.disabled = true;
+        }
+    </script>
+</body>
+</html>

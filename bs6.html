@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .form-control.is-invalid {
+            border-color: #dc3545;
+        }
+        .btn-red {
+            width: 100%;
+            background-color: #dc3545;
+            color: #fff;
+        }
+        .custom-select-options {
+            display: none;
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+            position: absolute;
+            width: 100%;
+            background-color: #fff;
+        }
+        .show-options .custom-select-options {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hobbies">Hobbies:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="hobbies" name="hobbies" readonly required>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="show-options">▶</span>
+                            </div>
+                        </div>
+                        <div class="custom-select-options">
+                            <div><input type="checkbox" value="Reading"> Reading</div>
+                            <div><input type="checkbox" value="Gaming"> Gaming</div>
+                            <div><input type="checkbox" value="Traveling"> Traveling</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-red">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
